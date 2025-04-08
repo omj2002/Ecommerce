@@ -1,0 +1,82 @@
+/* Main Navbar Styling */
+.navbar {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+  background: white;
+  height: 56px;
+}
+
+.navbar-brand img {
+  max-height: 40px;
+}
+
+.form-control {
+  border-radius: 20px;
+}
+
+.btn-outline-primary {
+  border-radius: 20px;
+}
+
+.navbar-nav .nav-link {
+  font-weight: bold;
+  color: #333;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #0d6efd;
+}
+
+.navbar-nav .btn-outline-success {
+  border-radius: 20px;
+  padding: 5px 15px;
+}
+
+/* Dropdown Styling */
+.dropdown-menu.show {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10001; /* Higher than navbar */
+  max-height: 300px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+  cursor: pointer;
+}
+
+/* Container for router-outlet */
+.main-content {
+  padding-top: 106px; /* Combined height of main navbar (56px) and secondary navbar (50px) */
+  min-height: calc(100vh - 106px);
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  background: #fff;
+}
+
+/* Secondary Navbar positioning */
+app-secondary-navbar {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  background: white;
+  height: 50px;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 101px; /* Adjusted for mobile - main navbar (56px) + secondary navbar (45px) */
+    min-height: calc(100vh - 101px);
+  }
+}

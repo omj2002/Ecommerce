@@ -1,0 +1,8 @@
+.container {
+  margin-top: 20px;
+}
+
+.row {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}

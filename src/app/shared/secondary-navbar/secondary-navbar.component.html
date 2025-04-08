@@ -1,0 +1,41 @@
+<div class="secondary-navbar">
+  <button class="menu-toggle" (click)="toggleMobileMenu()" *ngIf="isMobile">
+    <i class="bi bi-list"></i>
+  </button>
+  <div class="nav-container" #navContainer>
+    <button class="scroll-button scroll-left" (click)="scrollLeft()" *ngIf="!isMobile">
+      <i class="bi bi-chevron-left"></i>
+    </button>
+    <ul class="nav" [class.show]="showMobileMenu">
+      <li *ngFor="let category of navigationData" 
+          class="nav-item"
+          (mouseenter)="!isMobile && (activeDropdown = category.category)"
+          (mouseleave)="!isMobile && (activeDropdown = null)">
+        <a class="nav-link" 
+           (click)="toggleDropdown(category.category, $event)">
+          {{ category.category }}
+          <i class="bi bi-chevron-down nav-arrow" [class.rotate]="activeDropdown === category.category"></i>
+        </a>
+        <div class="dropdown-menu" [class.show]="activeDropdown === category.category" #dropdownMenu>
+          <div class="dropdown-content">
+            <div *ngFor="let section of category.sections" class="dropdown-section">
+              <div class="dropdown-section-title">{{ section.title }}</div>
+              <ul class="dropdown-section-items">
+                <li *ngFor="let item of section.items">
+                  <a [routerLink]="['/category', category.category, item]" 
+                     class="dropdown-item"
+                     (click)="closeDropdownAndMenu()">
+                    {{ item }}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <button class="scroll-button scroll-right" (click)="scrollRight()" *ngIf="!isMobile">
+      <i class="bi bi-chevron-right"></i>
+    </button>
+  </div>
+</div><div class="nav-overlay" [class.show]="showMobileMenu" (click)="closeMobileMenu()"></div>
