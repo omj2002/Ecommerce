@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/ECOMMERCE-STORE",
+            "outputPath": "dist/ECOMMERCE-STORE/browser",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -56,7 +56,7 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "/Ecommerce/"
+              "baseHref": "/E-commerce/"
             },
             "development": {
               "optimization": false,
